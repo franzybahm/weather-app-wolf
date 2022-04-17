@@ -1,0 +1,132 @@
+body {
+  background-color: rgba(197, 207, 252, 0.3);
+  color: #232323;
+}
+
+h1,
+h2,
+h4 {
+  text-align: center;
+  font-family: Mulish;
+}
+
+h3,
+p {
+  text-align: right;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 80px;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  color: #505050;
+}
+
+p {
+  font-size: 18px;
+  padding-top: 50px;
+}
+
+footer {
+  text-align: center;
+  font-size: 15px;
+  font-family: red hat mono;
+}
+
+button {
+  display: block;
+  margin: 10px auto 10px 0px;
+}
+
+.main {
+  display: block;
+  margin: 0 auto;
+  margin-top: 100px;
+  background-color: white;
+}
+
+.search {
+  background: linear-gradient(to top,
+      rgba(197, 207, 252, 0.3) 0%,
+      #e2ebf0 100%);
+  border: 1px solid rgba(197, 207, 252, 1);
+  border-radius: 10px;
+  padding: 5px 20px;
+  transition: all 60ms ease-in-out;
+}
+
+.search:hover {
+  background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+.search-col {
+  padding: 10px 50px;
+  display: block;
+  margin: 0 auto;
+}
+
+.current-weather {
+  background: linear-gradient(to top,
+      rgba(197, 207, 252, 0.3) 0%,
+      #e2ebf0 100%) !important;
+  display: block;
+  margin: 0 auto;
+  transition: all 30ms ease-in-out;
+}
+
+.current-weather:hover {
+  background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%) !important;
+}
+
+.current-city {
+  text-transform: capitalize;
+}
+
+.sunny {
+  color: #ffc300;
+}
+
+.big-weather {
+  text-align: center;
+  font-size: 120px;
+}
+
+.small-weather {
+  font-size: 80px;
+  text-align: center;
+}
+
+.next-days {
+  text-align: center;
+  margin: 0 auto 30px 0;
+}
+
+.seperator {
+  border-right: 1px solid rgb(131, 131, 131);
+  transition: all 60ms ease-in-out;
+}
+
+.seperator:hover {
+  border-right: 0px solid rgb(255, 255, 255);
+}
+
+.zoom {
+  transition: all 60ms ease-in-out;
+}
+
+.zoom:hover {
+  background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 80%);
+  border-radius: 10px;
+  filter: drop-shadow(0 0 0.2rem rgb(189, 189, 189));
+}
