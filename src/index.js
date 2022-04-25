@@ -34,8 +34,11 @@ displayedTime.innerHTML = currentTime;
 //Display the city name someone searched for after submitting and change Temp
 function getWeather(response){
   let temperatureElement = document.querySelector("#current-temp");
+  let weatherIcon = document.querySelector("#weather-icon");
   let temp = Math.round(response.data.main.temp)
   temperatureElement.innerHTML = `${temp}°C`;
+  weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@4x.png`);
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchCity(event) {
