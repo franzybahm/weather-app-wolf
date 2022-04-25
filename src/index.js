@@ -35,10 +35,16 @@ displayedTime.innerHTML = currentTime;
 function getWeather(response){
   let temperatureElement = document.querySelector("#current-temp");
   let weatherIcon = document.querySelector("#weather-icon");
+  let descriptionElement = document.querySelector("#description");
+  let windElement = document.querySelector("#wind");
+  let humidityElement = document.querySelector("#humidity");
   let temp = Math.round(response.data.main.temp)
   temperatureElement.innerHTML = `${temp}°C`;
   weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@4x.png`);
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  windElement.innerHTML = `Wind: ${response.data.wind.speed}km/h`;
+  humidityElement.innerHTML = `Precipitation: ${response.data.main.humidity}%`;
 }
 
 function searchCity(event) {

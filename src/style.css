@@ -13,6 +13,8 @@ h4 {
 h3,
 p {
   text-align: right;
+    font-size: 18px;
+    padding-top: 50px;
 }
 
 h1 {
@@ -31,11 +33,6 @@ h3 {
 
 h4 {
   color: #505050;
-}
-
-p {
-  font-size: 18px;
-  padding-top: 50px;
 }
 
 footer {
@@ -129,4 +126,9 @@ button {
   background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 80%);
   border-radius: 10px;
   filter: drop-shadow(0 0 0.2rem rgb(189, 189, 189));
+}
+
+.info{
+  padding-top: 0px;
+  margin: 0;
 }
