@@ -132,3 +132,17 @@ button {
   padding-top: 0px;
   margin: 0;
 }
+
+.forecast-max {
+  font-size: 22px;
+  text-align: center;
+  font-family: Mulish;
+  color: #505050;
+}
+
+.forecast-min {
+  font-size: 22px;
+  text-align: center;
+  font-family: Mulish;
+  color: #a3a3a3;
+}
