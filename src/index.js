@@ -31,39 +31,51 @@ let currentTime = formatDate(time);
 let displayedTime = document.querySelector("#current-time");
 displayedTime.innerHTML = currentTime;
 
+function timestampToDate(date){
+let stamp = new Date(date * 1000);
+let day = stamp.getDay(); 
+let days = [
+    "Sunday",
+    "Monday",
+    "Thuesday",
+    "Wendsday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  return days[day];
+}
+
 //Display forecast
 function displayForecast(response){
-  let forecast = document.querySelector("#forecast");
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
 
-  days.forEach(function(day){
-
+  forecast.forEach(function(forecastDay, index){
+    if(index<6){
   forecastHTML = forecastHTML + 
             `<div class="col-4 zoom">
-              <h4>${day}</h4>
-              <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" id="weather-icon-forecast"></i>
+              <h4>${timestampToDate(forecastDay.dt)}</h4>
+              <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" id="weather-icon-forecast"></i>
               <div class="forecast-temp">
-                <span class="forecast-max">7°</span>
-                <span class="forecast-min">4°</span>
+                <span class="forecast-max">${Math.round(forecastDay.temp.max)}°</span>
+                <span class="forecast-min">${Math.round(forecastDay.temp.min)}°</span>
               </div>
             </div>
   `;
-   });
+   }
+  });
+  
   forecastHTML = forecastHTML + `</div>`;
 
-  forecast.innerHTML = forecastHTML;
-console.log(response.data.daily);
-  
-  
+  forecastElement.innerHTML = forecastHTML;
 }
 
 //Display the city name someone searched for after submitting and change Temp
 function getCoordinates(coordinates){
   let apiKey = "cf1b1343a7207aa60910085fc2251ee5";
-  console.log(coordinates);
   let apiURL=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiURL);
   axios.get(apiURL).then(displayForecast);
 }
 
