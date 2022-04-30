@@ -4,7 +4,7 @@ function formatDate(date) {
     "Sunday",
     "Monday",
     "Thuesday",
-    "Wendsday",
+    "Wednesday",
     "Thursday",
     "Friday",
     "Saturday"
@@ -38,7 +38,7 @@ let days = [
     "Sunday",
     "Monday",
     "Thuesday",
-    "Wendsday",
+    "Wednesday",
     "Thursday",
     "Friday",
     "Saturday"
@@ -131,7 +131,7 @@ function getPos(event){
 let locButton = document.querySelector("#location-button");
 locButton.addEventListener("click", getPos);
 
-//Change °C to °F and viceversa by clicking it
+/*Change °C to °F and viceversa by clicking it
 function getF(celcius) {
   let fahrenheit = Math.round(celcius * 1.8 + 32);
   return fahrenheit;
@@ -171,3 +171,4 @@ if (unit === "C") {
 }
 
 button.addEventListener("click", convertTemp);
+*/
