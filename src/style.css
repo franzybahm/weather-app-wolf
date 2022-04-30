@@ -106,7 +106,6 @@ button {
 
 .next-days {
   text-align: center;
-  margin: 0 auto 30px 0;
 }
 
 .seperator {
@@ -120,6 +119,7 @@ button {
 
 .zoom {
   transition: all 60ms ease-in-out;
+  margin: 0 0 50px 0;
 }
 
 .zoom:hover {

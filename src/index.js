@@ -31,6 +31,33 @@ let currentTime = formatDate(time);
 let displayedTime = document.querySelector("#current-time");
 displayedTime.innerHTML = currentTime;
 
+//Display forecast
+function displayForecast(){
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+
+  days.forEach(function(day){
+
+  forecastHTML = forecastHTML + 
+            `<div class="col-4 zoom">
+              <h4>${day}</h4>
+              <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" id="weather-icon-forecast"></i>
+              <div class="forecast-temp">
+                <span class="forecast-max">7°</span>
+                <span class="forecast-min">4°</span>
+              </div>
+            </div>
+  `;
+   });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecast.innerHTML = forecastHTML;
+
+  
+  
+}
+
 //Display the city name someone searched for after submitting and change Temp
 function getWeather(response){
   let temperatureElement = document.querySelector("#current-temp");
@@ -123,3 +150,4 @@ if (unit === "C") {
 }
 
 button.addEventListener("click", convertTemp);
+displayForecast();
