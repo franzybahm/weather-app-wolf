@@ -32,7 +32,7 @@ let displayedTime = document.querySelector("#current-time");
 displayedTime.innerHTML = currentTime;
 
 //Display forecast
-function displayForecast(){
+function displayForecast(response){
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
@@ -53,12 +53,20 @@ function displayForecast(){
   forecastHTML = forecastHTML + `</div>`;
 
   forecast.innerHTML = forecastHTML;
-
+console.log(response.data.daily);
   
   
 }
 
 //Display the city name someone searched for after submitting and change Temp
+function getCoordinates(coordinates){
+  let apiKey = "cf1b1343a7207aa60910085fc2251ee5";
+  console.log(coordinates);
+  let apiURL=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiURL);
+  axios.get(apiURL).then(displayForecast);
+}
+
 function getWeather(response){
   let temperatureElement = document.querySelector("#current-temp");
   let weatherIcon = document.querySelector("#weather-icon");
@@ -74,6 +82,7 @@ function getWeather(response){
   descriptionElement.innerHTML = response.data.weather[0].description;
   windElement.innerHTML = `Wind: ${response.data.wind.speed}km/h`;
   humidityElement.innerHTML = `Precipitation: ${response.data.main.humidity}%`;
+  getCoordinates(response.data.coord);
 }
 
 function searchCity(event) {
@@ -150,4 +159,3 @@ if (unit === "C") {
 }
 
 button.addEventListener("click", convertTemp);
-displayForecast();
