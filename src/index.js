@@ -38,7 +38,9 @@ function getWeather(response){
   let descriptionElement = document.querySelector("#description");
   let windElement = document.querySelector("#wind");
   let humidityElement = document.querySelector("#humidity");
-  let temp = Math.round(response.data.main.temp)
+  let temp = Math.round(response.data.main.temp);
+  let city = document.querySelector("#current-city");
+  city.innerHTML = response.data.name;
   temperatureElement.innerHTML = `${temp}°C`;
   weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@4x.png`);
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
@@ -49,9 +51,7 @@ function getWeather(response){
 
 function searchCity(event) {
   event.preventDefault();
-  let city = document.querySelector("#current-city");
   let searchInput = document.querySelector("#search-city-input");
-  city.innerHTML = searchInput.value;
   let apiKey = "cf1b1343a7207aa60910085fc2251ee5";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=${units}`;
